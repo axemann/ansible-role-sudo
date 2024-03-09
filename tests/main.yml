@@ -1,7 +1,8 @@
 ---
 
-- hosts: all
-  become: yes
+- name: Testing
+  hosts: all
+  become: true
   roles:
     - axemann.sudo
   vars:
@@ -15,7 +16,7 @@
     sudo_users:
       - name: 'user1'
       - name: 'user2'
-        nopasswd: yes
+        nopasswd: true
       - name: '%group1'
         hosts: 127.0.0.1
       - name: '%group2'
@@ -28,4 +29,4 @@
       - name: '%group4'
         users: 'user1,user2'
         groups: 'group1,group2'
-    purge_other_sudoers_files: yes
+    purge_other_sudoers_files: true
